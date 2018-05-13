@@ -10,7 +10,7 @@ import java.util.Calendar;
 
 /**
  *
- * @author Roger Laura
+ * @author HP
  */
 public class DocenteTitular extends Docente {
     protected String ExamenC;

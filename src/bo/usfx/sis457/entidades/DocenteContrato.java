@@ -10,7 +10,7 @@ import java.util.Calendar;
 
 /**
  *
- * @author Roger Laura
+ * @author HP
  */
 public class DocenteContrato extends Docente {
 
