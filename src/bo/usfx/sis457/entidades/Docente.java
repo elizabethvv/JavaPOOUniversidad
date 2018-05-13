@@ -13,30 +13,32 @@ import java.util.Calendar;
  * @author Marcelo
  */
 public class Docente extends Persona {
-    protected String Contrato;
+    protected int Aexperiencia;
+    protected String[] asignatura;
     protected String Titulo;
  
-    public Docente(String contrato, String titulo, String carnetIdentidad, String nombre, Calendar fechaNacimiento) {
+    public Docente(String carnetIdentidad, String nombre, Calendar fechaNacimiento,int Aexp,String titulo,String[] asignatura) {
         super(carnetIdentidad, nombre, fechaNacimiento);
-        this.Contrato = contrato;
+        this.Aexperiencia=Aexp;
         this.Titulo = titulo;
+        this.asignatura=asignatura;
     }
 
-    public Docente(String contrato, String titulo) {
-        this.Contrato = contrato;
+    public Docente(int Aexp, String titulo,String[] asignatura) {
+        this.Aexperiencia=Aexp;
         this.Titulo = titulo;
+        this.asignatura=asignatura;
     }
 
     public Docente() {
         
     }
-
-    public String getContrato() {
-        return Contrato;
+    public int getAexperiencia() {
+        return Aexperiencia;
     }
 
-    public void setContrato(String Contrato) {
-        this.Contrato = Contrato;
+    public void setAexperiencia(int experiencia) {
+        this.Aexperiencia = experiencia;
     }
 
     public String getTitulo() {
@@ -46,7 +48,26 @@ public class Docente extends Persona {
     public void setTitulo(String Titulo) {
         this.Titulo = Titulo;
     }
+    public String[] getAsignatura() {
+        return asignatura;
+    }
 
+    public void setAsignatura(String[] asignatura) {
+        this.asignatura = asignatura;
+    }
+    public void ModA(int con,String ab){
+        this.getAsignatura()[con]=ab;
+    }
+    public String MostrarA(){
+        String cadena="";
+        for(int i=0; i<this.getAsignatura().length; i++){
+            cadena+="'"+this.getAsignatura()[i]+"'";
+            if(i<(this.getAsignatura().length-1)){
+                cadena+=",";
+            }
+        }
+        return cadena;
+    }
     @Override
     public String toString() {
         return "Profesor{" 
@@ -54,7 +75,8 @@ public class Docente extends Persona {
                 + ", CarnetIdentidad=" + this.CarnetIdentidad 
                 + ", Nombre=" + this.Nombre 
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
-                + ", Contrato=" + Contrato + ", Titulo=" + Titulo + '}';
+                + ", Contrato=" + Aexperiencia + ", Titulo=" + Titulo 
+                + ", Asignatura=["+MostrarA()+"]"+ '}';
     }
     
 }
